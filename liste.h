@@ -20,6 +20,8 @@ typedef struct Joueur {
 
 typedef enum Sens {AVANT = 1, ARRIERE = 0} Sens;
 
+typedef enum Mode {CLASSIQUE = 1, CHAMPIONNAT = 2} Mode;
+
 void init_joueurs(Joueur joueurs[]);
 
 void supprimer_joueur(Joueur joueurs[], int indice);
@@ -37,5 +39,7 @@ void supprimer_joueur(Joueur joueurs[], int indice);
 
 */
 int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart);
+
+Mode menu();
 
 #endif //TP_LISTE1_LISTE_H

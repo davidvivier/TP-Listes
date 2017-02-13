@@ -35,7 +35,7 @@ void supprimer_joueur(Joueur joueurs[], int indice) {
 	 joueurs[ joueurs[indice].suivant ].precedent = joueurs[indice].precedent; 
 }
 
-int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart) {
+int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart, Mode mode) {
 
 	//printf("-in supprimer_joueur(nbSauts=%d, joueurDepart=%d)\n", nbSauts, joueurDepart);
 
@@ -63,8 +63,25 @@ int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart) {
 	}
 
 	// le compteur est arrivé à zéro, le joueur courant a perdu
-	supprimer_joueur(joueurs, joueurCourant);
+	if (mode == CLASSIQUE) {
+		supprimer_joueur(joueurs, joueurCourant);
+	}
 
 	return joueurCourant;
 }
 
+
+Mode menu() {
+	Mode mode = CLASSIQUE;
+
+	do {
+		printf("Choisir un mode de jeu :\n");
+		printf("  1 - Mode classique\n");
+		printf("  2 - Mode Championnat\n");
+		printf(" Choix (1/2) = ");
+
+		scanf("%d", &mode);
+	} while (mode != CLASSIQUE && mode != CHAMPIONNAT);
+
+	return mode;
+}
