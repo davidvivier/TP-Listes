@@ -16,6 +16,7 @@
 int main(void)
 {
     //Création d'un tableau qui va contenir la liste
+
     Joueur joueurs[NB_JOUEURS];
     int nbJoueursRestants = NB_JOUEURS;
     int tete = 0;
@@ -35,7 +36,7 @@ int main(void)
         nbJoueursRestants--;
     }
 
-    printf("Le gagnant est %s" ,joueurs[indiceGagnant].nom );
+    printf("Le gagnant est %s\n" ,joueurs[indiceGagnant].nom );
 
 
     return  0  ;
