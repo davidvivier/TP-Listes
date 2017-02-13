@@ -42,8 +42,8 @@ void supprimer_joueur(Joueur joueurs[], int indice);
 int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart);
 
 
-Mode menu();
+Mode menuMode();
 
-void jouer_partie(Joueur joueurs[] , int nb_parties);
+void jouer_partie(Joueur joueurs[] , int nb_parties, Mode mode);
 
 #endif //TP_LISTE1_LISTE_H

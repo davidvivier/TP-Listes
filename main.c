@@ -22,7 +22,9 @@ int main(void)
 
     srand(time(NULL)); // Graine aléatoire pour les fonctions rand
 
-    jouer_partie(joueurs , 15);
+    Mode mode = menuMode();
+
+    jouer_partie(joueurs , 15, mode);
 
 
     return  0;

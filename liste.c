@@ -71,7 +71,7 @@ int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart, Mode mode) {
 }
 
 
-Mode menu() {
+Mode menuMode() {
 	Mode mode = CLASSIQUE;
 
 	do {
@@ -87,7 +87,7 @@ Mode menu() {
 }
 
 
-void jouer_partie(Joueur joueurs[] , int nb_parties) {
+void jouer_partie(Joueur joueurs[] , int nb_parties, Mode mode) {
 
     int i=0;
     FILE * fichier_out ;
