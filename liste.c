@@ -89,7 +89,6 @@ Mode menuMode() {
 
 void jouer_partie(Joueur joueurs[] , int nb_parties, Mode mode) {
 
-    int i=0;
 
 	if (mode == CLASSIQUE)
 	{
@@ -117,7 +116,7 @@ void jouer_partie(Joueur joueurs[] , int nb_parties, Mode mode) {
 		FILE * fichier_out ;
 		fichier_out = fopen( "perdants", "wa+");
 
-		int nbJoueursRestants = NB_JOUEURS;
+		//int nbJoueursRestants = NB_JOUEURS;
 		int tete = 0;
 		int nbSauts = 0;
 		int indicePerdant =  -1 ;
