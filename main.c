@@ -12,6 +12,7 @@ int main(void)
 {
     //Création d'un tableau qui va contenir la liste
     Joueur joueurs[NB_JOUEURS] ;
+    int nbJoueursRestants = NB_JOUEURS ;
     int tete = 0 ;
     int nbSauts = 0 ;
     int nbSautsRestant = 0 ;
@@ -28,7 +29,9 @@ int main(void)
 
     init_joueurs(joueurs) ;
 
-    supprimer_joueur(joueurs , nbSauts , tete);
+    jouer_tour(joueurs , nbSauts , tete);
+    nbJoueursRestants-- ;
+
 
     return  0  ;
 }
