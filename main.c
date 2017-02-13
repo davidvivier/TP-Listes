@@ -13,13 +13,22 @@ int main(void)
     //Création d'un tableau qui va contenir la liste
     Joueur joueurs[NB_JOUEURS] ;
     int tete = 0 ;
-    int nbTours = 0 ;
+    int nbSauts = 0 ;
+    int nbSautsRestant = 0 ;
+    int i = 0 ;
 
     //on défini le nombre de tours
     srand(time(NULL));
-    nbTours = (int)rand()/RAND_MAX ;
+    tete = rand()%(NB_JOUEURS) ;
+    nbSauts = (rand()%(15-5))+5 ;  //nombre aléatoire en 5 et 15
+    nbSautsRestant = nbSauts ;
+
+    printf("Tete : %d\n" , tete);
+    printf("Nombre de sauts : %d\n" , nbSauts);
 
     init_joueurs(joueurs) ;
+
+    supprimer_joueur(joueurs , nbSauts , tete);
 
     return  0  ;
 }
