@@ -20,7 +20,7 @@ int main(void)
     int nbJoueursRestants = NB_JOUEURS;
     int tete = 0;
     int nbSauts = 0;
-    int indiceGagnant =  -1 ;
+    int indicePerdant =  -1 ;
 
 
     srand(time(NULL)); // Graine aléatoire pour les fonctions rand
@@ -31,11 +31,11 @@ int main(void)
     {
         tete = rand()%(NB_JOUEURS); // on définit une tete pour commencer le tour
         nbSauts = (rand()%(15-5))+5;  //nombre aléatoire en 5 et 15
-        indiceGagnant = jouer_tour(joueurs , nbSauts , tete); // renvoi le gagnant du tour
+        indicePerdant = jouer_tour(joueurs , nbSauts , tete); // renvoi le gagnant du tour
         nbJoueursRestants--;
     }
 
-    printf("Le gagnant est %s" ,joueurs[indiceGagnant].nom );
+    printf("Le gagnant est %s" ,joueurs[joueurs[indicePerdant].suivant].nom );
 
 
     return  0  ;
