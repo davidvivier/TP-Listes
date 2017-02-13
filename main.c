@@ -36,8 +36,8 @@ int main(void)
         nbJoueursRestants--;
     }
 
-    printf("Le gagnant est %s" ,joueurs[joueurs[indicePerdant].suivant].nom );
+    printf("Le gagnant est %s\n" ,joueurs[joueurs[indicePerdant].suivant].nom );
 
 
-    return  0  ;
+    return  0;
 }
