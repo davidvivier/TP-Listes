@@ -70,7 +70,6 @@ int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart , Mode mode) {
 	return joueurCourant;
 }
 
-
 Mode menuMode() {
 	Mode mode = CLASSIQUE;
 
@@ -85,7 +84,6 @@ Mode menuMode() {
 
 	return mode;
 }
-
 
 void jouer_partie(Joueur joueurs[] , int nb_parties, Mode mode) {
 

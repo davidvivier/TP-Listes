@@ -23,8 +23,21 @@ typedef enum Sens {AVANT = 1, ARRIERE = 0} Sens;
 
 typedef enum Mode {CLASSIQUE = 1, CHAMPIONNAT = 2} Mode;
 
+/*
+	Initialise le tableau de joueurs
+
+	entrée-sortie : joueurs
+*/
 void init_joueurs(Joueur joueurs[]);
 
+/*
+	supprime un joueur
+		-> remplace le joueur courant par le joueur suivant pour le joueur précédent, 
+		et remplace le joueur courant par le joueur précédent pour le joueur suivant.
+
+	entrée-sortie : joueurs
+	entrée : indice, l'indice du joueur à supprimer
+*/
 void supprimer_joueur(Joueur joueurs[], int indice);
 
 
@@ -42,8 +55,19 @@ void supprimer_joueur(Joueur joueurs[], int indice);
 int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart , Mode mode);
 
 
+/*
+	Affiche un menu pour choisir le mode de jeu
+	sortie : le Mode (enum : CLASSIQUE ou CHAMPIONNAT) choisi par l'utilisateur 
+*/
 Mode menuMode();
 
+/*
+	Joue une partie avec le mode de jeu choisi.
+
+	entrée joueurs : le tableau de joueurs
+	entrée nb_parties : le nombre de parties à jouer (pour le mode CHAMPIONNAT)
+	entrée mode : le mode de jeu choisi (enum : CLASSIQUE ou CHAMPIONNAT)
+*/
 void jouer_partie(Joueur joueurs[] , int nb_parties, Mode mode);
 
 #endif //TP_LISTE1_LISTE_H
