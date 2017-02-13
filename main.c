@@ -33,6 +33,7 @@ int main(void)
         tete = rand()%(NB_JOUEURS); // on définit une tete pour commencer le tour
         nbSauts = (rand()%(15-5))+5;  //nombre aléatoire entre 5 et 15
         indicePerdant = jouer_tour(joueurs , nbSauts , tete); // renvoie le perdant du tour
+        printf("%s a perdu.\n", joueurs[indicePerdant].nom);
         nbJoueursRestants--;
     }
 
