@@ -18,26 +18,11 @@ int main(void)
     //Création d'un tableau qui va contenir la liste
 
     Joueur joueurs[NB_JOUEURS];
-    int nbJoueursRestants = NB_JOUEURS;
-    int tete = 0;
-    int nbSauts = 0;
-    int indicePerdant =  -1 ;
 
 
     srand(time(NULL)); // Graine aléatoire pour les fonctions rand
 
-    init_joueurs(joueurs) ; // on initialise la liste de joueurs
-
-    while (nbJoueursRestants > 1) // tant qu'il reste plusieurs joueurs
-    {
-        tete = rand()%(NB_JOUEURS); // on définit une tete pour commencer le tour
-        nbSauts = (rand()%(15-5))+5;  //nombre aléatoire entre 5 et 15
-        indicePerdant = jouer_tour(joueurs , nbSauts , tete); // renvoie le perdant du tour
-        printf("%s a perdu.\n", joueurs[indicePerdant].nom);
-        nbJoueursRestants--;
-    }
-
-    printf("Le gagnant est %s\n" ,joueurs[joueurs[indicePerdant].suivant].nom );
+    jouer_partie(joueurs , 15);
 
 
     return  0;

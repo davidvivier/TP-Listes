@@ -7,6 +7,7 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 #define NB_JOUEURS 5
@@ -40,6 +41,9 @@ void supprimer_joueur(Joueur joueurs[], int indice);
 */
 int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart);
 
+
 Mode menu();
+
+void jouer_partie(Joueur joueurs[] , int nb_parties);
 
 #endif //TP_LISTE1_LISTE_H
