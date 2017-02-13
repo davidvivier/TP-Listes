@@ -35,7 +35,7 @@ void supprimer_joueur(Joueur joueurs[], int indice) {
 	 joueurs[ joueurs[indice].suivant ].precedent = joueurs[indice].precedent; 
 }
 
-int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart, Mode mode) {
+int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart , Mode mode) {
 
 	//printf("-in supprimer_joueur(nbSauts=%d, joueurDepart=%d)\n", nbSauts, joueurDepart);
 
@@ -90,35 +90,53 @@ Mode menuMode() {
 void jouer_partie(Joueur joueurs[] , int nb_parties, Mode mode) {
 
     int i=0;
-    FILE * fichier_out ;
-    fichier_out = fopen( "perdants", "wa+");
 
-        int nbJoueursRestants = NB_JOUEURS;
-        int tete = 0;
-        int nbSauts = 0;
-        int indicePerdant =  -1 ;
+	if (mode == CLASSIQUE)
+	{
+		int nbJoueursRestants = NB_JOUEURS;
+		int tete = 0;
+		int nbSauts = 0;
+		int indicePerdant =  -1 ;
 
+		init_joueurs(joueurs) ; // on initialise la liste de joueurs
 
-        init_joueurs(joueurs) ; // on initialise la liste de joueurs
+		while (nbJoueursRestants > 1) // tant qu'il reste plusieurs joueurs
+		{
+			tete = rand()%(NB_JOUEURS); // on définit une tete pour commencer le tour
+			nbSauts = (rand()%(15-5))+5;  //nombre aléatoire entre 5 et 15
+			indicePerdant = jouer_tour(joueurs , nbSauts , tete , mode); // renvoie le perdant du tour
+			printf("%s a perdu.\n", joueurs[indicePerdant].nom);
+			nbJoueursRestants--;
+		}
 
-        while (nb_parties > 0) // tant qu'il reste plusieurs joueurs
-        {
-            tete = rand()%(NB_JOUEURS); // on définit une tete pour commencer le tour
-            nbSauts = (rand()%(15-5))+5;  //nombre aléatoire entre 5 et 15
-            indicePerdant = jouer_tour(joueurs , nbSauts , tete); // renvoie le perdant du tour
-            //printf("%s a perdu.\n", joueurs[indicePerdant].nom);
-            //nbJoueursRestants--;
+		printf("Le gagnant est %s\n" ,joueurs[joueurs[indicePerdant].suivant].nom );
+
+	}
+	else if (mode == CHAMPIONNAT)
+	{
+		FILE * fichier_out ;
+		fichier_out = fopen( "perdants", "wa+");
+
+		int nbJoueursRestants = NB_JOUEURS;
+		int tete = 0;
+		int nbSauts = 0;
+		int indicePerdant =  -1 ;
+
+		init_joueurs(joueurs) ; // on initialise la liste de joueurs
+
+		while (nb_parties > 0) // tant qu'il reste plusieurs joueurs
+		{
+			tete = rand()%(NB_JOUEURS); // on définit une tete pour commencer le tour
+			nbSauts = (rand()%(15-5))+5;  //nombre aléatoire entre 5 et 15
+			indicePerdant = jouer_tour(joueurs , nbSauts , tete , mode); // renvoie le perdant du tour
+			//printf("%s a perdu.\n", joueurs[indicePerdant].nom);
 			fputs(joueurs[indicePerdant].nom, fichier_out);
 			fputs("\n", fichier_out);
 			nb_parties--;
-			init_joueurs(joueurs) ; // on initialise la liste de joueurs
-        }
+		}
 
-        //ecrire dans un fichier
-        //printf("Le gagnant est %s\n" ,joueurs[joueurs[indicePerdant].suivant].nom );
+		fclose(fichier_out);
+	}
 
-
-
-	fclose(fichier_out);
 }
 

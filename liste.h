@@ -39,7 +39,7 @@ void supprimer_joueur(Joueur joueurs[], int indice);
 	sortie : l'indice du joueur perdant
 
 */
-int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart);
+int jouer_tour(Joueur joueurs[], int nbSauts, int joueurDepart , Mode mode);
 
 
 Mode menuMode();
