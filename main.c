@@ -31,8 +31,8 @@ int main(void)
     while (nbJoueursRestants > 1) // tant qu'il reste plusieurs joueurs
     {
         tete = rand()%(NB_JOUEURS); // on définit une tete pour commencer le tour
-        nbSauts = (rand()%(15-5))+5;  //nombre aléatoire en 5 et 15
-        indicePerdant = jouer_tour(joueurs , nbSauts , tete); // renvoi le gagnant du tour
+        nbSauts = (rand()%(15-5))+5;  //nombre aléatoire entre 5 et 15
+        indicePerdant = jouer_tour(joueurs , nbSauts , tete); // renvoie le perdant du tour
         nbJoueursRestants--;
     }
 
